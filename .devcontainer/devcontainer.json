@@ -5,7 +5,7 @@
   "workspaceFolder": "/workspace",
   "forwardPorts": [5000, 27017],
   "postCreateCommand": "npm install",
-  "initializeCommand": "cp -n .devcontainer/.env.example .devcontainer/.env",
+  "initializeCommand": "if [ ! -f .devcontainer/.env ]; then cp .devcontainer/.env.example .devcontainer/.env; fi",
   "customizations": {
     "vscode": {
       "extensions": [

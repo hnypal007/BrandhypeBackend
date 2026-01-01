@@ -7,7 +7,7 @@ services:
       - ..:/workspace:cached
     command: sleep infinity
     env_file:
-      - .devcontainer/.env
+      - .env
     environment:
       - PORT=${PORT:-5000}
     networks:
@@ -19,7 +19,7 @@ services:
     image: mongo:7
     restart: unless-stopped
     env_file:
-      - .devcontainer/.env
+      - .env
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
