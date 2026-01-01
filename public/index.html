@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandHype - Case Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="logo-section">
+                    <div class="logo-circle">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" fill="url(#gradient1)"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#667eea"/>
+                                    <stop offset="100%" stop-color="#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h1>BrandHype</h1>
+                    <p class="subtitle">Case Management System</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required autocomplete="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required autocomplete="current-password">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    
+                    <div id="loginError" class="error-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="logo-circle-small">
+                    <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" fill="url(#gradient2)"/>
+                        <defs>
+                            <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                                <stop offset="0%" stop-color="#667eea"/>
+                                <stop offset="100%" stop-color="#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span>BrandHype</span>
+            </div>
+            
+            <div class="nav-user">
+                <div class="user-info">
+                    <span id="userName">User</span>
+                    <span id="userRole" class="badge">AGENT</span>
+                </div>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="dashboard-header">
+                <h2 id="dashboardTitle">Dashboard</h2>
+            </div>
+
+            <!-- Agent View: Create Case -->
+            <div id="agentView" class="view-section">
+                <div class="card">
+                    <h3>Create New Case</h3>
+                    <form id="createCaseForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="agentName">Agent Name</label>
+                                <input type="text" id="agentName" name="agentName">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cxName">Customer Name *</label>
+                                <input type="text" id="cxName" name="cxName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10 digits">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="device">Device</label>
+                                <input type="text" id="device" name="device">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model">Model</label>
+                                <input type="text" id="model" name="model">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="isp">ISP</label>
+                                <input type="text" id="isp" name="isp">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="services">Services</label>
+                                <input type="text" id="services" name="services">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <input type="number" id="amount" name="amount">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="paymentMode">Payment Mode</label>
+                                <select id="paymentMode" name="paymentMode">
+                                    <option value="">Select...</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Card">Card</option>
+                                    <option value="UPI">UPI</option>
+                                    <option value="Net Banking">Net Banking</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number (Optional)</label>
+                                <input type="text" id="cardNumber" name="cardNumber">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="caseId">Case ID</label>
+                                <input type="text" id="caseId" name="caseId">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="issue">Issue Description</label>
+                                <input type="text" id="issue" name="issue">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remark">Remark</label>
+                            <textarea id="remark" name="remark" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Create Case</button>
+                        <div id="caseMessage" class="message"></div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tech View: View Cases -->
+            <div id="techView" class="view-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Cases List</h3>
+                        <button id="refreshCases" class="btn btn-secondary">Refresh</button>
+                    </div>
+                    <div id="casesList" class="table-container"></div>
+                </div>
+            </div>
+
+            <!-- Case Detail Modal -->
+            <div id="caseModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Case Details</h3>
+                        <button class="modal-close" onclick="closeModal()">&times;</button>
+                    </div>
+                    <div id="caseDetailContent"></div>
+                    <div class="modal-footer">
+                        <form id="techUpdateForm">
+                            <input type="hidden" id="updateCaseId">
+                            <div class="form-group">
+                                <label for="techRemark">Tech Remark</label>
+                                <textarea id="techRemark" name="techRemark" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="issueFixed">Issue Status</label>
+                                <select id="issueFixed" name="issueFixed" required>
+                                    <option value="">Select Status</option>
+                                    <option value="true">Fixed</option>
+                                    <option value="false">Not Fixed</option>
+                                </select>
+                            </div>
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Update Case</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                            </div>
+                            <div id="updateMessage" class="message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin View: All Cases & Management -->
+            <div id="adminView" class="view-section">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="allCases">All Cases</button>
+                    <button class="tab-btn" data-tab="createUser">Create User</button>
+                    <button class="tab-btn" data-tab="export">Export Data</button>
+                </div>
+
+                <div class="tab-content active" id="allCases">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>All Cases (Admin View)</h3>
+                            <button id="refreshAdminCases" class="btn btn-secondary">Refresh</button>
+                        </div>
+                        <div id="adminCasesList" class="table-container"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="createUser">
+                    <div class="card">
+                        <h3>Create New User</h3>
+                        <form id="createUserForm">
+                            <div class="form-group">
+                                <label for="newUserName">Name</label>
+                                <input type="text" id="newUserName" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newUsername">Username</label>
+                                <input type="text" id="newUsername" name="username" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newPassword">Password</label>
+                                <input type="password" id="newPassword" name="password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newUserRole">Role</label>
+                                <select id="newUserRole" name="role" required>
+                                    <option value="AGENT">Agent</option>
+                                    <option value="TECH">Tech</option>
+                                    <option value="ADMIN">Admin</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Create User</button>
+                            <div id="userMessage" class="message"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="export">
+                    <div class="card">
+                        <h3>Export Data</h3>
+                        <p>Download case data in Excel format</p>
+                        <button id="exportExcel" class="btn btn-primary">Export to Excel</button>
+                        <div id="exportMessage" class="message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
