@@ -14,6 +14,10 @@ services:
   mongodb:
     image: mongo:7
     restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: devuser
+      MONGO_INITDB_ROOT_PASSWORD: devpassword
+      MONGO_INITDB_DATABASE: brandhype
     volumes:
       - mongodb-data:/data/db
     ports:
