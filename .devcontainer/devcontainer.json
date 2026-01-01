@@ -1,0 +1,17 @@
+{
+  "name": "BrandhypeBackend",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "backend",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [5000, 27017],
+  "postCreateCommand": "npm install",
+  "initializeCommand": "if [ ! -f .devcontainer/.env ]; then cp .devcontainer/.env.example .devcontainer/.env; fi",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
